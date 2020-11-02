@@ -1,5 +1,5 @@
 <script>
-    export let title = "ASL-Learn";
+    const title = "ASL-Learn";
     const description = "Learn how to fingerspell!"
 </script>
 

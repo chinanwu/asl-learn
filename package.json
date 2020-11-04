@@ -7,7 +7,7 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "dev-electron": "concurrently \"npm run dev\" \"npm run start-electron\"",
-    "build-electron": "run-s build start-electron",
+    "build-electron": " TODO ",
     "start-electron": "electron ."
   },
   "devDependencies": {
@@ -16,6 +16,14 @@
     "@rollup/plugin-node-resolve": "^8.0.0",
     "concurrently": "^5.3.0",
     "electron": "^10.1.5",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "prettier": "2.1.2",
     "rollup": "^2.3.4",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^6.0.0",
@@ -24,5 +32,10 @@
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

@@ -26,7 +26,6 @@
   import Y from './alphabet/Y.svelte';
   import Z from './alphabet/Z.svelte';
 
-  // const alphabet = ["a", "b", "c", "d"]
   const alphabet = [
   	{ letter: 'a', component: A },
   	{ letter: 'b', component: B },
@@ -56,13 +55,20 @@
   	{ letter: 'z', component: Z },
   ]
 
-  const letterNum = Math.floor(Math.random() * 26);
+  let letterNum = Math.floor(Math.random() * 26);
   $: letter = alphabet[letterNum];
   $: src = `assets/alphabet/${letter.letter}.png`;
 
-  const focusOnLoad = (node) => {
-  	node.focus();
-  }
+  let guess = "";
+
+  const handleKeyDown = (event) => {
+  	if (event?.key === "Enter") {
+  		if (guess === letter.letter) {
+				letterNum = Math.floor(Math.random() * 26);
+				guess = "";
+			}
+		}
+	}
 </script>
 
 <style lang="less">
@@ -92,6 +98,13 @@
 <div class="FingerspellImg">
 	<svelte:component this={letter.component}/>
 
-	<input id="fingerspellGuess" class="FingerspellImg__input" type="text" use:focusOnLoad maxlength="1"/>
+	<input id="fingerspellGuess"
+				 class="FingerspellImg__input"
+				 type="text"
+				 autofocus
+				 maxlength="1"
+				 bind:value={guess}
+				 on:keydown={handleKeyDown}
+	/>
 	<label for="fingerspellGuess" class="FingerspellImg__label">Letter</label>
 </div>

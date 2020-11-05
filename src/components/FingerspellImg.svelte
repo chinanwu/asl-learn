@@ -59,10 +59,39 @@
   const letterNum = Math.floor(Math.random() * 26);
   $: letter = alphabet[letterNum];
   $: src = `assets/alphabet/${letter.letter}.png`;
+
+  const focusOnLoad = (node) => {
+  	node.focus();
+  }
 </script>
 
-<!--<div class="FingerspellImg">-->
-<!--    <img {src} alt="Letter">-->
-<!--</div>-->
+<style lang="less">
+	.FingerspellImg {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-<svelte:component this={letter.component}/>
+	.FingerspellImg__label {
+    font-size: 2rem;
+	}
+
+  .FingerspellImg__input {
+    border: none;
+    width: 7.2rem;
+    text-align: center;
+		font-size: 6.4rem;
+
+		&:focus {
+			border-bottom: 1px solid black;
+			outline: none;
+		}
+  }
+</style>
+
+<div class="FingerspellImg">
+	<svelte:component this={letter.component}/>
+
+	<input id="fingerspellGuess" class="FingerspellImg__input" type="text" use:focusOnLoad maxlength="1"/>
+	<label for="fingerspellGuess" class="FingerspellImg__label">Letter</label>
+</div>

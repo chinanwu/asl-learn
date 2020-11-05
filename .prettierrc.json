@@ -2,5 +2,10 @@
   "semi": true,
   "trailingComma": "es5",
   "useTabs": true,
-  "singleQuote": true
+  "singleQuote": true,
+  "svelteSortOrder" : "styles-scripts-markup",
+  "svelteStrictMode": true,
+  "svelteBracketNewLine": true,
+  "svelteAllowShorthand": false,
+  "svelteIndentScriptAndStyle": false
 }

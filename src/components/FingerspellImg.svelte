@@ -1,8 +1,30 @@
 <script>
-  import A from './alphabet/A.svelte'
-  import B from './alphabet/B.svelte'
-  import C from './alphabet/C.svelte'
-  import D from './alphabet/D.svelte'
+  import A from './alphabet/A.svelte';
+  import B from './alphabet/B.svelte';
+  import C from './alphabet/C.svelte';
+  import D from './alphabet/D.svelte';
+  import E from './alphabet/E.svelte';
+  import F from './alphabet/F.svelte';
+  import G from './alphabet/G.svelte';
+  import H from './alphabet/H.svelte';
+  import I from './alphabet/I.svelte';
+  import J from './alphabet/J.svelte';
+  import K from './alphabet/K.svelte';
+  import L from './alphabet/L.svelte';
+  import M from './alphabet/M.svelte';
+  import N from './alphabet/N.svelte';
+  import O from './alphabet/O.svelte';
+  import P from './alphabet/P.svelte';
+  import Q from './alphabet/Q.svelte';
+  import R from './alphabet/R.svelte';
+  import S from './alphabet/S.svelte';
+  import T from './alphabet/T.svelte';
+  import U from './alphabet/U.svelte';
+  import V from './alphabet/V.svelte';
+  import W from './alphabet/W.svelte';
+  import X from './alphabet/X.svelte';
+  import Y from './alphabet/Y.svelte';
+  import Z from './alphabet/Z.svelte';
 
   // const alphabet = ["a", "b", "c", "d"]
   const alphabet = [
@@ -10,17 +32,37 @@
   	{ letter: 'b', component: B },
   	{ letter: 'c', component: C },
   	{ letter: 'd', component: D },
+  	{ letter: 'e', component: E },
+  	{ letter: 'f', component: F },
+  	{ letter: 'g', component: G },
+  	{ letter: 'h', component: H },
+  	{ letter: 'i', component: I },
+  	{ letter: 'j', component: J },
+  	{ letter: 'k', component: K },
+  	{ letter: 'l', component: L },
+  	{ letter: 'm', component: M },
+  	{ letter: 'n', component: N },
+  	{ letter: 'o', component: O },
+  	{ letter: 'p', component: P },
+  	{ letter: 'q', component: Q },
+  	{ letter: 'r', component: R },
+  	{ letter: 's', component: S },
+  	{ letter: 't', component: T },
+  	{ letter: 'u', component: U },
+  	{ letter: 'v', component: V },
+  	{ letter: 'w', component: W },
+  	{ letter: 'x', component: X },
+  	{ letter: 'y', component: Y },
+  	{ letter: 'z', component: Z },
   ]
 
-  // Images from https://web.stanford.edu/~dljaffe/Ralph/jrrd.html
-  //   const letterNum = Math.floor(Math.random() * 26);
-  const letterNum = Math.floor(Math.random() * 4);
+  const letterNum = Math.floor(Math.random() * 26);
   $: letter = alphabet[letterNum];
-  $: src = `assets/alphabet/${letter}.png`;
+  $: src = `assets/alphabet/${letter.letter}.png`;
 </script>
 
-<div class="FingerspellImg">
-    <img {src} alt="Letter">
-</div>
+<!--<div class="FingerspellImg">-->
+<!--    <img {src} alt="Letter">-->
+<!--</div>-->
 
 <svelte:component this={letter.component}/>

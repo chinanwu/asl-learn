@@ -60,12 +60,19 @@
   $: src = `assets/alphabet/${letter.letter}.png`;
 
   let guess = "";
+  let isCorrectGuess = true;
+  let combo = 0;
 
   const handleKeyDown = (event) => {
   	if (event?.key === "Enter") {
   		if (guess === letter.letter) {
 				letterNum = Math.floor(Math.random() * 26);
 				guess = "";
+				isCorrectGuess = true;
+				combo++;
+			} else {
+  			isCorrectGuess = false;
+  			combo = 0;
 			}
 		}
 	}
@@ -87,12 +94,16 @@
     width: 7.2rem;
     text-align: center;
 		font-size: 6.4rem;
+		border-bottom: 1px solid black;
 
 		&:focus {
-			border-bottom: 1px solid black;
 			outline: none;
 		}
   }
+
+	.FingerspellImg__input--wrong {
+		border-color: red;
+	}
 </style>
 
 <div class="FingerspellImg">
@@ -107,4 +118,8 @@
 				 on:keydown={handleKeyDown}
 	/>
 	<label for="fingerspellGuess" class="FingerspellImg__label">Letter</label>
+
+	{#if !isCorrectGuess}
+		<p>Incorrect guess, try again!</p>
+	{/if}
 </div>

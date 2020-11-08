@@ -119,6 +119,7 @@
 	/>
 	<label for="fingerspellGuess" class="FingerspellImg__label">Letter</label>
 
+<!--	Remove incorrect when input is empty maybe? -->
 	{#if !isCorrectGuess}
 		<p>Incorrect guess, try again!</p>
 	{/if}
